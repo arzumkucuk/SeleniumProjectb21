@@ -36,6 +36,12 @@ public class P0_findElementPractice1 {
 
         //#4- Print out how many links on the page
 
+        int numberOfLinks = listOfLinks.size();
+
+        System.out.println("numberOfLinks = " + numberOfLinks);
+
+        driver.close();
+
 
 
 
