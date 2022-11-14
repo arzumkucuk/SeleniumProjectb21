@@ -13,7 +13,7 @@ public class Driver {
 
     private static WebDriver driver;
 
-    private static WebDriver getDriver() {
+    public static WebDriver getDriver() {
 
 
         if (driver == null) {
@@ -29,15 +29,18 @@ public class Driver {
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
             }
         }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 
         return driver;
     }
